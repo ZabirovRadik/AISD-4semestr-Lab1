@@ -1,9 +1,5 @@
 #pragma once
-#include <cmath>
-#include <stdexcept>
 #include <iostream>
-#include <random>
-#include <complex>
 #include <vector>
 
 using namespace std;
@@ -157,7 +153,7 @@ vector<Key> without_repetitions(const vector<Key>& initial_vec) {
     Set<Key> Answer, Tmp;
     for (size_t i = 0; i < initial_vec.size(); ++i) {
         if (not Answer.insert(initial_vec[i]))
-            Tmp.push_back(initial_vec[i]);
+            Tmp.insert(initial_vec[i]);
     }
     vector<Key> tmp_vec = Tmp.set_to_vector();
     for (size_t j = 0; j < tmp_vec.size(); ++j)
