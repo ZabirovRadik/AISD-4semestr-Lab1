@@ -38,8 +38,8 @@ class Set {
     void print(Node* tmp) {
         if (tmp) {
             print(tmp->left);
-            print(tmp->right);
             cout << tmp->key << " ";
+            print(tmp->right);
         }
     }
     void to_vector(Node* root, vector<Key>& result) {
@@ -47,8 +47,8 @@ class Set {
             return;
         }
         to_vector(root->left, result);
-        to_vector(root->right, result);
         result.push_back(root->key);
+        to_vector(root->right, result);
     }
 public:
     Set(): _root(nullptr){}
