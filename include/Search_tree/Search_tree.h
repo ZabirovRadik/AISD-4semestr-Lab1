@@ -55,7 +55,8 @@ public:
     Set(const Set& Another) {
         _root = copy(_root, Another._root);
     }
-    void operator=(const Set& Another) {
+    void operator=(const Set& Another) { // Set a; a = b;
+        delete_tree(_root);
         _root = copy(_root, Another._root);
     }
     ~Set() {
@@ -88,6 +89,7 @@ public:
         print(_root);
         cout << endl;
     }
+
     bool contains(const Key& key) {
         Node* tmp = _root;
         while (tmp && tmp->key != key){
@@ -98,6 +100,7 @@ public:
         }
         return tmp;
     }
+
     bool erase(const Key& key) {
         Node* cur = _root;
         Node* parent = nullptr;
@@ -150,13 +153,13 @@ size_t lcg() {
 
 template<typename Key>
 vector<Key> without_repetitions(const vector<Key>& initial_vec) {
-    Set<Key> Answer, Tmp;
+    Set<Key> answer, tmp;
     for (size_t i = 0; i < initial_vec.size(); ++i) {
-        if (not Answer.insert(initial_vec[i]))
-            Tmp.insert(initial_vec[i]);
+        if (not answer.insert(initial_vec[i]))
+            tmp.insert(initial_vec[i]);
     }
-    vector<Key> tmp_vec = Tmp.set_to_vector();
+    vector<Key> tmp_vec = tmp.set_to_vector();
     for (size_t j = 0; j < tmp_vec.size(); ++j)
-        Answer.erase(tmp_vec[j]);
-    return Answer.set_to_vector();
+        answer.erase(tmp_vec[j]);
+    return answer.set_to_vector();
 }

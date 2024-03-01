@@ -206,7 +206,7 @@ TEST(Search_tree, Experement2Vector) {
 				vec.push_back(lcg());
 		}
 		clock_t t = clock();
-		find(vec.begin(), vec.end(), rand_elem);
+		volatile auto x = find(vec.begin(), vec.end(), rand_elem);
 		sum += (float)(clock() - t) / CLOCKS_PER_SEC;
 	}
 	cout << "Vector's time to search for an element (1000):" << sum / 1000 << endl;
@@ -225,7 +225,7 @@ TEST(Search_tree, Experement2Vector) {
 				vec.push_back(lcg());
 		}
 		clock_t t = clock();
-		find(vec.begin(), vec.end(), rand_elem);
+		volatile auto x =  find(vec.begin(), vec.end(), rand_elem);
 		sum += (float)(clock() - t) / CLOCKS_PER_SEC;
 	}
 	cout << "Vector's time to search for an element (100000):" << sum / 1000 << endl;
@@ -244,7 +244,7 @@ TEST(Search_tree, Experement2Vector) {
 				vec.push_back(lcg());
 		}
 		clock_t t = clock();
-		find(vec.begin(), vec.end(), rand_elem);
+		volatile auto x =  find(vec.begin(), vec.end(), rand_elem);
 		sum += (float)(clock() - t) / CLOCKS_PER_SEC;
 	}
 	cout << "Vector's time to search for an element (100000):" << sum / 1000 << endl;

@@ -15,6 +15,7 @@ if(MSVC)
     else()
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
     endif()
+    set(CMAKE_CXX_FLAGS " /Ob0 ${CMAKE_CXX_FLAGS} ")
 endif()
 
 # Объявляем библиотеку
